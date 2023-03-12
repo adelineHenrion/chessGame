@@ -4,19 +4,11 @@ public class Position {
     private char column;
     private int row;
 
-    public Position(int column, int row) {
-        switch (column) {
-            case 0 -> this.column = 'a';
-            case 1 -> this.column = 'b';
-            case 2 -> this.column = 'c';
-            case 3 -> this.column = 'd';
-            case 4 -> this.column = 'e';
-            case 5 -> this.column = 'f';
-            case 6 -> this.column = 'g';
-            case 7 -> this.column = 'h';
-            default -> throw new IllegalArgumentException("Invalid column: " + column);
-        }
+    public Position(char column, int row) {
+        char lowerColumn = Character.toLowerCase(column);
+        if(column < 'a' || column > 'h') throw new IllegalArgumentException("Invalid column: " + column);
         if(row < 1 || row > 8) throw new IllegalArgumentException("Invalid row: " + row);
+        this.column = lowerColumn;
         this.row = row;
     }
 

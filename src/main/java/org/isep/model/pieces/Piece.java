@@ -23,4 +23,8 @@ public abstract class Piece {
     public boolean isWhite() {
         return isWhite;
     }
+
+    public Position getPosition() {
+        return position;
+    }
 }
